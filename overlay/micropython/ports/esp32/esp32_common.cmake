@@ -273,6 +273,20 @@ idf_component_register(
 # Set the MicroPython target as the current (main) IDF component target.
 set(MICROPY_TARGET ${COMPONENT_TARGET})
 
+# ESP-IDF 6.x snapshots differ in whether this enum member is available.
+# Check the Wi-Fi header used by the port so both C compilation and qstr
+# generation see the same set of constants.
+if(IDF_VERSION_MAJOR GREATER_EQUAL 6)
+    idf_component_get_property(esp_vision_wifi_dir esp_wifi COMPONENT_DIR)
+    set(esp_vision_wifi_types "${esp_vision_wifi_dir}/include/esp_wifi_types_generic.h")
+    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${esp_vision_wifi_types}")
+    file(STRINGS "${esp_vision_wifi_types}" esp_vision_wifi_auth_unknown
+        REGEX "^[ \t]*WIFI_AUTH_UNKNOWN[ \t]*[,=]")
+    if(esp_vision_wifi_auth_unknown)
+        target_compile_definitions(${MICROPY_TARGET} PRIVATE ESP_VISION_WIFI_AUTH_UNKNOWN_SUPPORTED=1)
+    endif()
+endif()
+
 # Define mpy-cross flags, for use with frozen code.
 if(CONFIG_IDF_TARGET_ARCH_XTENSA)
     set(MICROPY_CROSS_FLAGS -march=xtensawin)

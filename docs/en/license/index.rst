@@ -100,6 +100,14 @@ The following table lists the direct dependencies most relevant to redistributio
      - Component Registry
      - Camera driver
      - Apache-2.0
+   * - `esp_lcd_st7102 <https://components.espressif.com/components/kevincoooool/esp_lcd_st7102/versions/1.0.4/readme>`__ v1.0.4
+     - Component Registry
+     - ST7102 LCD panel driver for Ledong Max S31
+     - Apache-2.0 in package metadata and LICENSE; source headers also contain usage restrictions
+   * - `esp_lcd_touch_st7123 <https://components.espressif.com/components/espressif/esp_lcd_touch_st7123/versions/1.0.2/readme>`__ v1.0.2
+     - Component Registry
+     - ST7123 touchscreen driver for Ledong Max S31
+     - Apache-2.0
    * - `ESP-IDF <https://github.com/espressif/esp-idf>`__
      - External SDK
      - Build system, drivers, and media components

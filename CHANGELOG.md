@@ -6,6 +6,7 @@ All notable changes to ESP-VISION are recorded here. The format follows [Keep a 
 
 ### Added
 
+- Add the LABPLUS Ledong Max S31 board with ST7102 RGB display, ST7123 touch, and GC0328 camera support.
 - Release Knowledge MCP 0.3.0 with the archived firmware 2026.11.14 snapshot and advance the explicit latest firmware pointer. Preserve all three historical snapshots and exact-version queries for the already published Plugin 0.2.0.
 - Add opt-in board-specific UVC mode tables and an optional VM callback for negotiated host modes.
 - Add UVC examples for direct camera streaming, a fixed color chart, and app-controlled camera sizing after USB mode negotiation.
@@ -16,6 +17,7 @@ All notable changes to ESP-VISION are recorded here. The format follows [Keep a 
 
 ### Fixed
 
+- Build MicroPython networking against ESP-IDF 6.x Wi-Fi headers with or without `WIFI_AUTH_UNKNOWN`.
 - Generate the UVC idle logo as a color MJPEG frame so hosts can start decoding color before the first camera frame.
 - Backport TinyUSB #4234 to serialize DWC2 transmit FIFO writes and flushes across cores and keep CDC responsive during UVC streaming.
 - Select the P4 software JPEG fallback when the default internal DMA heap cannot hold the hardware encoder's first descriptor.

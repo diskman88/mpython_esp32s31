@@ -100,6 +100,14 @@ ESP-VISION 自有代码（``platform/``、大部分 ``modules/``、``boards/`` �
      - Component Registry
      - 相机驱动
      - Apache-2.0
+   * - `esp_lcd_st7102 <https://components.espressif.com/components/kevincoooool/esp_lcd_st7102/versions/1.0.4/readme>`__ v1.0.4
+     - Component Registry
+     - Ledong Max S31 的 ST7102 液晶面板驱动
+     - 包元数据和 LICENSE 标注 Apache-2.0，源码头部另有用途限制
+   * - `esp_lcd_touch_st7123 <https://components.espressif.com/components/espressif/esp_lcd_touch_st7123/versions/1.0.2/readme>`__ v1.0.2
+     - Component Registry
+     - Ledong Max S31 的 ST7123 触摸驱动
+     - Apache-2.0
    * - `ESP-IDF <https://github.com/espressif/esp-idf>`__
      - 外部 SDK
      - 构建系统、驱动和媒体组件

@@ -72,6 +72,8 @@ configure_file(${CMAKE_BINARY_DIR}/sdkconfig.combined.in ${CMAKE_BINARY_DIR}/sdk
 set(SDKCONFIG_DEFAULTS ${CMAKE_BINARY_DIR}/sdkconfig.combined)
 
 # Include main IDF cmake file.
+# Use the board target for dependency manifest rules evaluated by Python.
+set(ENV{IDF_TARGET} "${IDF_TARGET}")
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 
 # Generate individual dependencies.lock files based on chip target

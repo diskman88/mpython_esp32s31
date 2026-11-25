@@ -29,9 +29,7 @@
 #include "esp_wifi_types.h"
 #include "esp_netif.h"
 
-#if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(6, 0, 0)
-#define ESP_VISION_WIFI_AUTH_UNKNOWN_SUPPORTED (1)
-#else
+#ifndef ESP_VISION_WIFI_AUTH_UNKNOWN_SUPPORTED
 #define ESP_VISION_WIFI_AUTH_UNKNOWN_SUPPORTED (0)
 #endif
 
