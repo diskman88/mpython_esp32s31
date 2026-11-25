@@ -1,0 +1,17 @@
+{
+    "deploy": [
+        "../deploy.md"
+    ],
+    "docs": "",
+    "features": [
+        "WiFi",
+        "DVP",
+        "OV3660",
+        "SC101IOT"
+    ],
+    "mcu": "esp32s31",
+    "product": "LABPLUS LEDONG MAX S31",
+    "thumbnail": "",
+    "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s31/labplus-ledong-max-s31/index.html",
+    "vendor": "Espressif"
+}

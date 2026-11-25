@@ -1,0 +1,134 @@
+# SPDX-FileCopyrightText: 2026 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+
+version: 1.0.0
+devices:
+  - name: display_lcd
+    chip: st7102
+    type: display_lcd
+    sub_type: rgb_3wire_spi
+    version: 1.0.0
+    init_skip: true
+    config:
+      swap_xy: false
+      mirror_y: false
+      mirror_x: false
+      invert_color: false
+      need_reset: true
+      bits_per_pixel: 16
+      rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB
+      data_endian: LCD_RGB_DATA_ENDIAN_BIG
+      io_3wire_spi_config:
+        line_config:
+          cs_io_type: IO_TYPE_GPIO
+          cs_gpio_num: 22
+          scl_io_type: IO_TYPE_GPIO
+          scl_gpio_num: 20
+          sda_io_type: IO_TYPE_GPIO
+          sda_gpio_num: 21
+        expect_clk_speed: 500000
+        spi_mode: 0
+        lcd_cmd_bytes: 1
+        lcd_param_bytes: 1
+        flags:
+          use_dc_bit: true
+          del_keep_cs_inactive: true
+      rgb_panel_config:
+        clk_src: LCD_CLK_SRC_DEFAULT
+        data_width: 16
+        in_color_format: LCD_COLOR_FMT_RGB565
+        out_color_format: LCD_COLOR_FMT_RGB565
+        num_fbs: 1
+        bounce_buffer_size_px: 0
+        dma_burst_size: 64
+        hsync_gpio_num: 18
+        vsync_gpio_num: 19
+        de_gpio_num: 17
+        pclk_gpio_num: 16
+        disp_gpio_num: -1
+        # RGB565 D0..D15: B3..B7, G2..G7, R3..R7.
+        data_gpio_nums: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        timings:
+          pclk_hz: 18000000
+          h_res: 800
+          v_res: 480
+          hsync_pulse_width: 1
+          hsync_back_porch: 40
+          hsync_front_porch: 20
+          vsync_pulse_width: 1
+          vsync_back_porch: 10
+          vsync_front_porch: 5
+          flags:
+            pclk_active_neg: true
+        flags:
+          fb_in_psram: true
+      lcd_panel_config:
+        reset_gpio_num: 23
+        rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB
+        data_endian: LCD_RGB_DATA_ENDIAN_BIG
+        bits_per_pixel: 16
+        flags:
+          reset_active_high: false
+        auto_del_panel_io: false
+
+  - name: lcd_touch
+    chip: st7123
+    type: lcd_touch
+    sub_type: i2c
+    version: default
+    init_skip: true
+    config:
+      io_i2c_config:
+        scl_speed_hz: 100000
+        lcd_cmd_bits: 16
+        flags:
+          disable_control_phase: true
+      touch_config:
+        x_max: 800
+        y_max: 480
+        rst_gpio_num: 48
+        int_gpio_num: -1
+        levels:
+          reset: 0
+    peripherals:
+      - name: i2c_master
+        # Board Manager expects the 7-bit address 0x55 shifted left.
+        i2c_addr: [0xAA]
+
+  - name: lcd_brightness
+    type: ledc_ctrl
+    version: default
+    init_skip: true
+    config:
+      default_percent: 0
+    peripherals:
+      - name: ledc_backlight
+
+  - name: camera
+    type: camera
+    sub_type: dvp
+    version: default
+    init_skip: true
+    config:
+      dvp_config:
+        reset_io: -1
+        pwdn_io: -1
+        vsync_io: 50
+        data_width: CAM_CTLR_DATA_WIDTH_8
+        de_io: 51
+        pclk_io: 55
+        # An external oscillator clocks the camera.
+        xclk_io: -1
+        xclk_freq: 0
+        data_io:
+          data_io_0: 57
+          data_io_1: 59
+          data_io_2: 60
+          data_io_3: 58
+          data_io_4: 56
+          data_io_5: 54
+          data_io_6: 53
+          data_io_7: 52
+    peripherals:
+      - name: i2c_master
+        frequency: 100000

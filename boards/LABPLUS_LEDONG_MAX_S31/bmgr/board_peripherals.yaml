@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+
+version: 1.0.0
+peripherals:
+  - name: i2c_master
+    type: i2c
+    role: master
+    config:
+      port: 0
+      pins:
+        sda: 25
+        scl: 24
+
+  - name: ledc_backlight
+    type: ledc
+    version: default
+    config:
+      gpio_num: 49
+      speed_mode: LEDC_LOW_SPEED_MODE
+      channel: 1
+      timer_sel: 0
+      freq_hz: 5000
+      duty_resolution: LEDC_TIMER_10_BIT
+      duty: 0
+      output_invert: false

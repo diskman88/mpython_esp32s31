@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+
+board: labplus_ledong_max_s31
+chip: esp32s31
+version: 1.0.0
+description: "LABPLUS LEDONG MAX S31 is a development board based on ESP32-S3-WROOM-1 module, which is designed for AI and IoT applications. It features a powerful dual-core processor, rich connectivity options, and various peripherals to support a wide range of projects."
+manufacturer: "ESPRESSIF"

@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2026 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+
+dependencies:
+  espressif/esp_board_manager:
+    version: "0.6.1"
+    require: public
+  espressif/esp_lcd_panel_io_additions:
+    version: "^1.0.0"
+    require: public
+  espressif/esp_lcd_touch:
+    version: "1.2.1"
+    require: public
+  espressif/esp_lcd_touch_st7123:
+    version: "1.0.2"
+    require: public
+  kevincoooool/esp_lcd_st7102:
+    version: "1.0.4"
+    require: public
