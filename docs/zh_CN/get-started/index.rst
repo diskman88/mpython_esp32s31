@@ -13,6 +13,8 @@
 
    CI 和发布固件仅验证上述开发板与 IDF 组合。v5.5.6 固定到补丁版本；S31 跟随 ``release/v6.1`` 维护分支。其它 IDF 版本可能涉及 ESP-IDF 或托管组件 API 变更，导致编译失败、运行行为变化，或改变可用的 MicroPython API；可能需要适配源码、overlay 或依赖，并重新进行硬件验证。可选 MicroPython 功能差异见项目 README。
 
+   本地使用 ESP-IDF 6.2 构建时复用 6.1 的依赖 overlay。发布固件与 CI 验证仍使用上面列出的版本。
+
 .. note::
 
    在 Windows 平台编译时，请先安装 `Visual Studio Build Tools <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_，再运行 ``idf.py``。在 Visual Studio Build Tools 安装器中，请勾选 “Desktop development with C++”（使用 C++ 的桌面开发）工作负载，并确认已勾选 “MSVC v143 - VS 2022 C++ x64/x86 build tools” 组件。

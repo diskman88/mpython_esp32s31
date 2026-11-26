@@ -13,6 +13,8 @@ Prerequisites
 
    CI and released firmware qualify only these board/IDF combinations. v5.5.6 is a pinned patch release; S31 follows the maintained ``release/v6.1`` branch. Other IDF versions may change ESP-IDF or managed-component APIs, fail to build, or change runtime behavior and the available MicroPython APIs. Adapting source, overlays or dependencies and repeating hardware verification may be necessary. The project README describes the optional MicroPython feature differences.
 
+   Local ESP-IDF 6.2 builds reuse the 6.1 dependency overlay. Published firmware and CI qualification still use the versions listed above.
+
 .. note::
 
    When building on Windows, install `Visual Studio Build Tools <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_ before running ``idf.py``. In the Visual Studio Build Tools installer, select the "Desktop development with C++" workload and make sure the "MSVC v143 - VS 2022 C++ x64/x86 build tools" component is selected.

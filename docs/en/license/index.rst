@@ -104,6 +104,10 @@ The following table lists the direct dependencies most relevant to redistributio
      - Component Registry
      - ST7102 LCD panel driver for Ledong Max S31
      - Apache-2.0 in package metadata and LICENSE; source headers also contain usage restrictions
+   * - `KSDIY S31 4.3 BSP <https://components.espressif.com/components/kevincoooool/ksdiy_s31_43_bsp/versions/0.1.0/readme>`__ v0.1.0
+     - Board source
+     - 480×800 ST7102 panel initialization profile adapted from OSPTEK
+     - Apache-2.0 AND CC-BY-4.0
    * - `esp_lcd_touch_st7123 <https://components.espressif.com/components/espressif/esp_lcd_touch_st7123/versions/1.0.2/readme>`__ v1.0.2
      - Component Registry
      - ST7123 touchscreen driver for Ledong Max S31

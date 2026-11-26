@@ -11,6 +11,7 @@
 #include "esp_board_manager_defs.h"
 #include "esp_lcd_st7102.h"
 #include "esp_lcd_touch_st7123.h"
+#include "st7102_init_cmds.h"
 
 esp_err_t lcd_touch_factory_entry_t(esp_lcd_panel_io_handle_t io,
                                     const esp_lcd_touch_config_t *touch_config,
@@ -32,6 +33,8 @@ esp_err_t lcd_panel_factory_entry_t(esp_lcd_panel_io_handle_t io,
 
     const dev_display_lcd_config_t *lcd_config = device_config;
     st7102_vendor_config_t vendor_config = {
+        .init_cmds = ledong_st7102_init_cmds,
+        .init_cmds_size = sizeof(ledong_st7102_init_cmds) / sizeof(ledong_st7102_init_cmds[0]),
         .rgb_config = &lcd_config->sub_cfg.rgb_3wire_spi.rgb_panel_config,
         .flags.use_rgb_interface = 1,
     };

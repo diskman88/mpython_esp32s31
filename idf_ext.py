@@ -134,6 +134,8 @@ def action_extensions(base_actions: dict[str, Any], project_path: str = os.getcw
             major_minor = f"{match.group(1)}.{match.group(2)}"
             if major_minor not in candidates:
                 candidates.append(major_minor)
+            if major_minor == "6.2":
+                candidates.append("6.1")
 
         for candidate in candidates:
             path = os.path.join(mp_component_yml, f"release{candidate}", "idf_component.yml")
@@ -141,7 +143,8 @@ def action_extensions(base_actions: dict[str, Any], project_path: str = os.getcw
                 return path
 
         raise FatalError(
-            f"Unsupported ESP-IDF version {version}; supported releases are v5.5, v6.0, and v6.1"
+            f"Unsupported ESP-IDF version {version}; available overlays are v5.5, v6.0, and v6.1 "
+            "(also used for v6.2)"
         )
 
     def selected_idf_overlay_name() -> str:

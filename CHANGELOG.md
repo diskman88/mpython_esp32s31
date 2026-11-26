@@ -13,6 +13,8 @@ All notable changes to ESP-VISION are recorded here. The format follows [Keep a 
 
 ### Changed
 
+- Configure the Ledong Max S31 LCD for 480×800 RGB565 with the board-specific ST7102 initialization profile and 40-line DMA bounce buffers.
+- Reuse the ESP-IDF 6.1 dependency overlay for local ESP-IDF 6.2 builds.
 - Use one lazily allocated UVC application frame buffer and generate the fallback logo at runtime. Keep published UVC APIs and accept application JPEG dimensions independently of the negotiated mode.
 
 ### Fixed

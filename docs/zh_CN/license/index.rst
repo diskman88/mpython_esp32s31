@@ -104,6 +104,10 @@ ESP-VISION 自有代码（``platform/``、大部分 ``modules/``、``boards/`` �
      - Component Registry
      - Ledong Max S31 的 ST7102 液晶面板驱动
      - 包元数据和 LICENSE 标注 Apache-2.0，源码头部另有用途限制
+   * - `KSDIY S31 4.3 BSP <https://components.espressif.com/components/kevincoooool/ksdiy_s31_43_bsp/versions/0.1.0/readme>`__ v0.1.0
+     - 板卡源码
+     - 源自 OSPTEK 的 480×800 ST7102 面板初始化表
+     - Apache-2.0 AND CC-BY-4.0
    * - `esp_lcd_touch_st7123 <https://components.espressif.com/components/espressif/esp_lcd_touch_st7123/versions/1.0.2/readme>`__ v1.0.2
      - Component Registry
      - Ledong Max S31 的 ST7123 触摸驱动
