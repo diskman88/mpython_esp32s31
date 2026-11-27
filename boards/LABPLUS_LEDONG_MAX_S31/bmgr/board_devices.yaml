@@ -15,7 +15,7 @@ devices:
       mirror_x: false
       invert_color: false
       need_reset: true
-      bits_per_pixel: 16
+      bits_per_pixel: 24
       rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB
       data_endian: LCD_RGB_DATA_ENDIAN_BIG
       io_3wire_spi_config:
@@ -35,9 +35,9 @@ devices:
           del_keep_cs_inactive: true
       rgb_panel_config:
         clk_src: LCD_CLK_SRC_DEFAULT
-        data_width: 16
+        data_width: 24
         in_color_format: LCD_COLOR_FMT_RGB565
-        out_color_format: LCD_COLOR_FMT_RGB565
+        out_color_format: LCD_COLOR_FMT_RGB888
         num_fbs: 1
         # Match the reference BSP's 40 scanlines per DMA bounce buffer.
         bounce_buffer_size_px: 19200
@@ -47,8 +47,10 @@ devices:
         de_gpio_num: 17
         pclk_gpio_num: 16
         disp_gpio_num: -1
-        # The verified basic example uses the native 16-bit RGB565 bus.
-        data_gpio_nums: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        # RGB888 slots in B, G, R order, low bit first. The FPC exposes
+        # bits 2–7 of each channel, with its B0 and R0 left unwired.
+        # FPC R4 connects to GPIO15 and R5 connects to GPIO14.
+        data_gpio_nums: [-1, -1, -1, 0, 1, 2, 3, 4, -1, -1, 5, 6, 7, 8, 9, 10, -1, -1, -1, 11, 12, 13, 15, 14]
         timings:
           pclk_hz: 37800000
           h_res: 480
@@ -68,7 +70,7 @@ devices:
         reset_gpio_num: 23
         rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB
         data_endian: LCD_RGB_DATA_ENDIAN_BIG
-        bits_per_pixel: 16
+        bits_per_pixel: 24
         flags:
           reset_active_high: false
         auto_del_panel_io: false
