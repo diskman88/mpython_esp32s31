@@ -11,11 +11,18 @@
 #include "esp_board_manager.h"
 #include "esp_board_manager_defs.h"
 #include "esp_lcd_st7102.h"
+#include "esp_lcd_panel_interface.h"
 #include "esp_lcd_panel_ops.h"
 #include "esp_lcd_touch_st7123.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "st7102_init_cmds.h"
+
+static esp_err_t lcd_panel_swap_xy(esp_lcd_panel_t *panel, bool swap_axes)
+{
+    (void)panel;
+    return swap_axes ? ESP_ERR_NOT_SUPPORTED : ESP_OK;
+}
 
 esp_err_t lcd_touch_factory_entry_t(esp_lcd_panel_io_handle_t io,
                                     const esp_lcd_touch_config_t *touch_config,
@@ -80,6 +87,8 @@ esp_err_t lcd_panel_factory_entry_t(esp_lcd_panel_io_handle_t io,
     if (ret != ESP_OK) {
         return ret;
     }
+    // Board Manager requests swap_xy even when it is disabled.
+    (*panel_handle)->swap_xy = lcd_panel_swap_xy;
     const int rgb_gpios[] = {16, 17, 18, 19, 0, 1, 2, 3, 4, 5,
                              6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     for (size_t i = 0; i < sizeof(rgb_gpios) / sizeof(rgb_gpios[0]); i++) {

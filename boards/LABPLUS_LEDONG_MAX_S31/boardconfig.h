@@ -33,7 +33,7 @@
 #define ESP_VISION_CAMERA_PPA_OUTPUT_QVGA_HEIGHT    (240)
 #define ESP_VISION_CAMERA_PPA_OUTPUT_VGA_WIDTH      (640)
 #define ESP_VISION_CAMERA_PPA_OUTPUT_VGA_HEIGHT     (480)
-#define ESP_VISION_CAMERA_BUFFER_COUNT              (1)
+#define ESP_VISION_CAMERA_BUFFER_COUNT              (2)
 /* Camera wiring is configured in bmgr/board_devices.yaml. */
 
 /* Display configuration. */

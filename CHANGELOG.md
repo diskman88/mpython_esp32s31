@@ -21,6 +21,8 @@ All notable changes to ESP-VISION are recorded here. The format follows [Keep a 
 
 ### Fixed
 
+- Treat the Ledong Max S31 LCD's disabled axis swap as a no-op while keeping axis swapping unsupported.
+- Configure the Ledong Max S31 GC0328 QVGA crop and 50 Hz exposure timing for continuous camera capture.
 - Align Ledong Max S31 LCD reset timing and RGB GPIO drive strength with the working panel bring-up example.
 - Build MicroPython networking against ESP-IDF 6.x Wi-Fi headers with or without `WIFI_AUTH_UNKNOWN`.
 - Generate the UVC idle logo as a color MJPEG frame so hosts can start decoding color before the first camera frame.
