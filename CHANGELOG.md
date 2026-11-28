@@ -13,12 +13,15 @@ All notable changes to ESP-VISION are recorded here. The format follows [Keep a 
 
 ### Changed
 
+- Remove unused Ledong Max S31 board macros that duplicate Board Manager camera and LCD wiring.
+- Remove the inherited Ledong Max S31 SD card configuration and board hooks; this board has no SD card.
 - Configure the Ledong Max S31 LCD with a 480×800 RGB565 framebuffer, hardware RGB888 output mapped to the board wiring, the board-specific ST7102 initialization profile, and 40-line DMA bounce buffers.
 - Reuse the ESP-IDF 6.1 dependency overlay for local ESP-IDF 6.2 builds.
 - Use one lazily allocated UVC application frame buffer and generate the fallback logo at runtime. Keep published UVC APIs and accept application JPEG dimensions independently of the negotiated mode.
 
 ### Fixed
 
+- Align Ledong Max S31 LCD reset timing and RGB GPIO drive strength with the working panel bring-up example.
 - Build MicroPython networking against ESP-IDF 6.x Wi-Fi headers with or without `WIFI_AUTH_UNKNOWN`.
 - Generate the UVC idle logo as a color MJPEG frame so hosts can start decoding color before the first camera frame.
 - Backport TinyUSB #4234 to serialize DWC2 transmit FIFO writes and flushes across cores and keep CDC responsive during UVC streaming.

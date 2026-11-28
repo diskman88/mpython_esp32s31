@@ -14,7 +14,8 @@ devices:
       mirror_y: false
       mirror_x: false
       invert_color: false
-      need_reset: true
+      # The factory performs the panel-specific reset before creating the driver.
+      need_reset: false
       bits_per_pixel: 24
       rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB
       data_endian: LCD_RGB_DATA_ENDIAN_BIG
@@ -39,7 +40,7 @@ devices:
         in_color_format: LCD_COLOR_FMT_RGB565
         out_color_format: LCD_COLOR_FMT_RGB888
         num_fbs: 1
-        # Match the reference BSP's 40 scanlines per DMA bounce buffer.
+        # Use 40 scanlines per DMA bounce buffer.
         bounce_buffer_size_px: 19200
         dma_burst_size: 128
         hsync_gpio_num: 18
@@ -65,7 +66,7 @@ devices:
             pclk_active_neg: true
         flags:
           fb_in_psram: true
-          bb_invalidate_cache: true
+          bb_invalidate_cache: false
       lcd_panel_config:
         reset_gpio_num: 23
         rgb_ele_order: LCD_RGB_ELEMENT_ORDER_RGB

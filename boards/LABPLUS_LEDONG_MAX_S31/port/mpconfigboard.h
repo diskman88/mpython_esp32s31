@@ -21,7 +21,7 @@
 #define MICROPY_HW_USB_MSC_INQUIRY_REVISION_STRING "1.00"
 
 #define MICROPY_PY_ESPNOW (0)
-// The inherited SDMMC pin assignment overlaps the LCD command bus and I2C0.
+// This board has no SD card.
 #define MICROPY_HW_ENABLE_SDCARD (0)
 #define MICROPY_PY_BLUETOOTH (0)
 #define MICROPY_PY_MACHINE_ADC (0)
